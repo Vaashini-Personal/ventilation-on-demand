@@ -27,7 +27,7 @@ function AppContent() {
     <AppLayout running={running} onToggleSimulation={toggleSimulation} alertCount={unackAlerts}>
       <Routes>
         <Route path="/" element={<Dashboard zones={zones} devices={devices} workers={workers} vehicles={vehicles} alerts={alerts} />} />
-        <Route path="/digital-twin" element={<DigitalTwin zones={zones} onToggleFan={toggleFan} />} />
+        <Route path="/digital-twin" element={<DigitalTwin zones={zones} devices={devices} workers={workers} vehicles={vehicles} alerts={alerts} onToggleFan={toggleFan} />} />
         <Route path="/devices" element={<DeviceManagement devices={devices} zones={zones} />} />
         <Route path="/map" element={<MineMap zones={zones} workers={workers} vehicles={vehicles} devices={devices} />} />
         <Route path="/health" element={<DeviceHealth devices={devices} zones={zones} />} />
