@@ -135,9 +135,25 @@ export default function MineMap({ zones, workers, vehicles, devices }: Props) {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-lg font-bold font-mono tracking-wide">Mine Map Visualization</h2>
-          <p className="text-xs text-muted-foreground">2D tunnel layout · Sensors, workers &amp; airflow overlay</p>
+          <p className="text-xs text-muted-foreground">{viewMode === '3d' ? '3D isometric view' : '2D tunnel layout'} · Sensors, workers &amp; airflow overlay</p>
         </div>
         <div className="flex gap-2">
+          <Button
+            size="sm"
+            variant={viewMode === '2d' ? 'default' : 'outline'}
+            onClick={() => setViewMode('2d')}
+            className="text-xs font-mono gap-1.5"
+          >
+            <Map className="h-3.5 w-3.5" /> 2D
+          </Button>
+          <Button
+            size="sm"
+            variant={viewMode === '3d' ? 'default' : 'outline'}
+            onClick={() => setViewMode('3d')}
+            className="text-xs font-mono gap-1.5"
+          >
+            <Box className="h-3.5 w-3.5" /> 3D
+          </Button>
           <Button
             size="sm"
             variant={showWorkers ? 'default' : 'outline'}
