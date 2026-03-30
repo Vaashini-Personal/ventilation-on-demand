@@ -1,10 +1,8 @@
-import { useState, useMemo, lazy, Suspense } from 'react';
+import { useState, useMemo } from 'react';
 import { Zone, Worker, Vehicle, Device } from '@/lib/simulation';
 import { StatusBadge } from '@/components/StatusBadge';
-import { Users, Cpu, Wind, TriangleAlert, Box, Map } from 'lucide-react';
+import { Users, Cpu, Wind, TriangleAlert } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const MineScene3D = lazy(() => import('@/components/MineScene3D'));
 
 interface Props {
   zones: Zone[];
@@ -86,7 +84,6 @@ export default function MineMap({ zones, workers, vehicles, devices }: Props) {
   const [showWorkers, setShowWorkers] = useState(true);
   const [showDevices, setShowDevices] = useState(true);
   const [showAirflow, setShowAirflow] = useState(true);
-  const [viewMode, setViewMode] = useState<'2d' | '3d'>('2d');
 
   const getZoneWorkers = (zoneId: string) => workers.filter(w => w.zone === zoneId);
   const getZoneVehicles = (zoneId: string) => vehicles.filter(v => v.zone === zoneId);
@@ -135,25 +132,9 @@ export default function MineMap({ zones, workers, vehicles, devices }: Props) {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-lg font-bold font-mono tracking-wide">Mine Map Visualization</h2>
-          <p className="text-xs text-muted-foreground">{viewMode === '3d' ? '3D isometric view' : '2D tunnel layout'} · Sensors, workers &amp; airflow overlay</p>
+          <p className="text-xs text-muted-foreground">2D tunnel layout · Sensors, workers &amp; airflow overlay</p>
         </div>
         <div className="flex gap-2">
-          <Button
-            size="sm"
-            variant={viewMode === '2d' ? 'default' : 'outline'}
-            onClick={() => setViewMode('2d')}
-            className="text-xs font-mono gap-1.5"
-          >
-            <Map className="h-3.5 w-3.5" /> 2D
-          </Button>
-          <Button
-            size="sm"
-            variant={viewMode === '3d' ? 'default' : 'outline'}
-            onClick={() => setViewMode('3d')}
-            className="text-xs font-mono gap-1.5"
-          >
-            <Box className="h-3.5 w-3.5" /> 3D
-          </Button>
           <Button
             size="sm"
             variant={showWorkers ? 'default' : 'outline'}
@@ -182,19 +163,8 @@ export default function MineMap({ zones, workers, vehicles, devices }: Props) {
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-4">
-        {viewMode === '3d' ? (
-          <div className="card-industrial overflow-hidden" style={{ height: '500px' }}>
-            <Suspense fallback={<div className="flex items-center justify-center h-full text-muted-foreground text-xs font-mono">Loading 3D scene...</div>}>
-              <MineScene3D
-                zones={zones} workers={workers} vehicles={vehicles} devices={devices}
-                selectedZone={selectedZone}
-                onSelectZone={setSelectedZone}
-              />
-            </Suspense>
-          </div>
-        ) : (
-          <div className="card-industrial p-2 overflow-hidden" style={{ perspective: '1200px' }}>
-            <div style={{ transform: 'rotateX(8deg) rotateY(-2deg)', transformOrigin: 'center center' }}>
+          <div className="card-industrial p-2 overflow-hidden">
+            <div>
               <svg
                 viewBox="0 0 1020 560"
                 className="w-full h-auto"
@@ -331,7 +301,6 @@ export default function MineMap({ zones, workers, vehicles, devices }: Props) {
               </svg>
             </div>
           </div>
-        )}
 
         {/* Detail Panel */}
         <div className="space-y-4">
