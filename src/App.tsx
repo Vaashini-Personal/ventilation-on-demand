@@ -16,6 +16,7 @@ import WorkerTracking from "./pages/WorkerTracking";
 import AlertsSafety from "./pages/AlertsSafety";
 import Energy from "./pages/Energy";
 import AIPredictions from "./pages/AIPredictions";
+import Reports from "./pages/Reports";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
