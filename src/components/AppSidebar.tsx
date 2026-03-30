@@ -36,7 +36,8 @@ const navGroups = [
     items: [
       { title: 'Devices', url: '/devices', icon: Cpu },
       { title: 'Device Health', url: '/health', icon: HeartPulse },
-      { title: 'Fleet', url: '/fleet', icon: Truck },
+      { title: 'Fleet Management', url: '/fleet', icon: Truck },
+      { title: 'Reports', url: '/reports', icon: FileText },
     ],
   },
 ];
