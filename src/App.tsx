@@ -16,6 +16,7 @@ import WorkerTracking from "./pages/WorkerTracking";
 import AlertsSafety from "./pages/AlertsSafety";
 import Energy from "./pages/Energy";
 import AIPredictions from "./pages/AIPredictions";
+import Reports from "./pages/Reports";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ function AppContent() {
         <Route path="/devices" element={<DeviceManagement devices={devices} zones={zones} />} />
         <Route path="/health" element={<DeviceHealth devices={devices} zones={zones} />} />
         <Route path="/fleet" element={<FleetManagement vehicles={vehicles} zones={zones} />} />
+        <Route path="/reports" element={<Reports zones={zones} devices={devices} workers={workers} vehicles={vehicles} alerts={alerts} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AppLayout>

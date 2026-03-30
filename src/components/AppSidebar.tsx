@@ -1,5 +1,5 @@
 import {
-  LayoutDashboard, Box, Cpu, Map, Users, Fan, AlertTriangle, Zap, BrainCircuit, Truck, HeartPulse
+  LayoutDashboard, Box, Cpu, Map, Users, Fan, AlertTriangle, Zap, BrainCircuit, Truck, HeartPulse, FileText
 } from 'lucide-react';
 import { NavLink } from '@/components/NavLink';
 import {
@@ -36,7 +36,8 @@ const navGroups = [
     items: [
       { title: 'Devices', url: '/devices', icon: Cpu },
       { title: 'Device Health', url: '/health', icon: HeartPulse },
-      { title: 'Fleet', url: '/fleet', icon: Truck },
+      { title: 'Fleet Management', url: '/fleet', icon: Truck },
+      { title: 'Reports', url: '/reports', icon: FileText },
     ],
   },
 ];
