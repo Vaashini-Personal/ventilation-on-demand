@@ -118,7 +118,7 @@ export function AppSidebar({ alertCount = 0 }: Props) {
                 <p className="text-[10px] text-muted-foreground">VoD v2.4.1 · SCADA linked</p>
               </div>
             </div>
-            <div className="pt-2 border-t border-sidebar-border">
+            <div className="pt-2 border-t border-sidebar-border flex flex-col items-center">
               <p className="text-[9px] text-muted-foreground/60 uppercase tracking-widest mb-1.5">Powered by</p>
               <img src={spritleLogo} alt="Spritle" className="h-5 w-auto object-contain" />
             </div>
