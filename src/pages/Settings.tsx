@@ -130,29 +130,7 @@ function VentilationTab() {
   );
 }
 
-function DigitalTwinTab() {
-  return (
-    <div className="space-y-4">
-      <SectionCard title="Simulation Parameters" description="Configure the Digital Twin simulation engine.">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2"><Label>Simulation Step (ms)</Label><Input type="number" defaultValue="1000" /></div>
-          <div className="space-y-2"><Label>Prediction Horizon (min)</Label><Input type="number" defaultValue="30" /></div>
-          <div className="space-y-2"><Label>Gas Diffusion Rate</Label><Slider defaultValue={[50]} max={100} step={1} /><p className="text-xs text-muted-foreground">50%</p></div>
-          <div className="space-y-2"><Label>Airflow Model</Label>
-            <Select defaultValue="cfd"><SelectTrigger><SelectValue /></SelectTrigger>
-              <SelectContent><SelectItem value="cfd">CFD-Based</SelectItem><SelectItem value="empirical">Empirical</SelectItem><SelectItem value="hybrid">Hybrid</SelectItem></SelectContent>
-            </Select>
-          </div>
-        </div>
-      </SectionCard>
-      <SectionCard title="Prediction Settings" description="Adjust AI prediction and gas propagation behavior.">
-        <SettingRow label="Real-time Sync" description="Continuously sync sensor data to the twin model."><Switch defaultChecked /></SettingRow>
-        <SettingRow label="Predictive Alerts" description="Generate alerts from predicted future conditions."><Switch defaultChecked /></SettingRow>
-        <SettingRow label="Scenario Recording" description="Save what-if simulation scenarios for review."><Switch /></SettingRow>
-      </SectionCard>
-    </div>
-  );
-}
+
 
 function FleetWorkersTab() {
   return (
