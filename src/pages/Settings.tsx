@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/* Settings Module */
 import {
   Cpu, Fan, Truck, Bell, Database, Save,
   Plus, Trash2, Edit,
