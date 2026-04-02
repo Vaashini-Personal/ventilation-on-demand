@@ -341,7 +341,7 @@ export default function Settings() {
         <Button onClick={handleSave} className="gap-1.5"><Save className="h-4 w-4" /> Save Changes</Button>
       </div>
 
-      <Tabs defaultValue="users" className="space-y-4">
+      <Tabs defaultValue="devices" className="space-y-4">
         <TabsList className="flex flex-wrap h-auto gap-1 bg-muted/30 p-1.5 rounded-lg">
           {tabItems.map(t => (
             <TabsTrigger key={t.value} value={t.value} className="gap-1.5 text-xs data-[state=active]:bg-primary/15 data-[state=active]:text-primary">
@@ -350,17 +350,11 @@ export default function Settings() {
           ))}
         </TabsList>
 
-        <TabsContent value="users"><UsersTab /></TabsContent>
-        <TabsContent value="mine"><MineConfigTab /></TabsContent>
         <TabsContent value="devices"><DevicesTab /></TabsContent>
         <TabsContent value="ventilation"><VentilationTab /></TabsContent>
-        <TabsContent value="twin"><DigitalTwinTab /></TabsContent>
         <TabsContent value="fleet"><FleetWorkersTab /></TabsContent>
         <TabsContent value="alerts"><AlertsTab /></TabsContent>
-        <TabsContent value="integrations"><IntegrationsTab /></TabsContent>
         <TabsContent value="data"><DataSystemTab /></TabsContent>
-        <TabsContent value="security"><SecurityTab /></TabsContent>
-        <TabsContent value="ui"><UIPreferencesTab /></TabsContent>
       </Tabs>
     </div>
   );
