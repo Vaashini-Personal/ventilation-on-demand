@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import {
-  Users, Mountain, Cpu, Fan, Box, Truck, Bell, Plug, Database, Shield, Palette, Save,
-  Plus, Trash2, Edit, ToggleLeft, ToggleRight, ChevronDown, Lock, Mail, Smartphone,
-  Wifi, Radio, Settings as SettingsIcon
+  Cpu, Fan, Truck, Bell, Database, Save,
+  Plus, Trash2, Edit,
+  Settings as SettingsIcon
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
