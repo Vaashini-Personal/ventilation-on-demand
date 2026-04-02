@@ -116,7 +116,7 @@ function VentilationTab() {
         <div className="space-y-2">
           <Label>Damper Control Logic</Label>
           <Select defaultValue="proportional"><SelectTrigger><SelectValue /></SelectTrigger>
-            <SelectContent><SelectItem value="proportional">Proportional</SelectItem><SelectItem value="on-off">On/Off</SelectItem><SelectItem value="pid">PID Control</SelectItem></SelectContent>
+            <SelectContent><SelectItem value="on-off">On/Off</SelectItem><SelectItem value="pid">PID Control</SelectItem></SelectContent>
           </Select>
         </div>
       </SectionCard>
