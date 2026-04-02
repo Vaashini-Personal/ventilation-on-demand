@@ -17,13 +17,6 @@ import { Slider } from '@/components/ui/slider';
 import { toast } from 'sonner';
 
 /* ─── mock data ─── */
-const mockUsers = [
-  { id: 1, name: 'Admin User', email: 'admin@smartmine.io', role: 'Super Admin', status: 'Active' },
-  { id: 2, name: 'John Operator', email: 'john@smartmine.io', role: 'Operator', status: 'Active' },
-  { id: 3, name: 'Sarah Engineer', email: 'sarah@smartmine.io', role: 'Engineer', status: 'Active' },
-  { id: 4, name: 'Mike Viewer', email: 'mike@smartmine.io', role: 'Viewer', status: 'Inactive' },
-];
-const roles = ['Super Admin', 'Admin', 'Operator', 'Engineer', 'Viewer'];
 
 const tabItems = [
   { value: 'users', label: 'Users & Roles', icon: Users },
