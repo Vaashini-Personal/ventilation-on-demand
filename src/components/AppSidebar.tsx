@@ -1,6 +1,7 @@
 import {
   LayoutDashboard, Box, Cpu, Map, Users, Fan, AlertTriangle, Zap, BrainCircuit, Truck, HeartPulse, FileText, Settings
 } from 'lucide-react';
+import monkdbLogo from '@/assets/monkdb-logo.png.asset.json';
 
 import { NavLink } from '@/components/NavLink';
 import {
@@ -61,18 +62,24 @@ export function AppSidebar({ alertCount = 0 }: Props) {
     <Sidebar collapsible="icon">
       <SidebarContent className="flex flex-col h-full">
         {/* Logo */}
-        <div className={`p-4 pb-2 ${collapsed ? 'px-2' : ''}`}>
-          <div className="flex items-center gap-2.5">
-            <div className="h-8 w-8 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
-              <Fan className="h-4 w-4 text-primary" />
-            </div>
-            {!collapsed && (
-              <div>
+        <div className={`${collapsed ? 'px-2 py-3' : 'px-4 py-3'} flex flex-col items-center gap-2`}>
+          {!collapsed ? (
+            <>
+              <img
+                src={monkdbLogo.url}
+                alt="MonkDB"
+                className="w-[135px] h-auto bg-white rounded-md px-3 py-2"
+              />
+              <div className="text-center">
                 <h1 className="text-sm font-bold text-foreground tracking-wide">SmartMine</h1>
                 <p className="text-[10px] text-muted-foreground">VoD Control System</p>
               </div>
-            )}
-          </div>
+            </>
+          ) : (
+            <div className="h-8 w-8 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+              <Fan className="h-4 w-4 text-primary" />
+            </div>
+          )}
         </div>
 
         {/* Nav groups */}
