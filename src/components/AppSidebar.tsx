@@ -1,7 +1,9 @@
 import {
   LayoutDashboard, Box, Cpu, Map, Users, Fan, AlertTriangle, Zap, BrainCircuit, Truck, HeartPulse, FileText, Settings
 } from 'lucide-react';
-import monkdbLogo from '@/assets/monkdb-logo.png.asset.json';
+//import monkdbLogo from '@/assets/monkdb-logo.png.asset.json';
+import monkdbLogo from '@/assets/monkdb-logo.png';
+
 
 import { NavLink } from '@/components/NavLink';
 import {
@@ -66,7 +68,7 @@ export function AppSidebar({ alertCount = 0 }: Props) {
           {!collapsed ? (
             <>
               <img
-                src={monkdbLogo.url}
+                src={monkdbLogo}
                 alt="MonkDB"
                 className="w-[135px] h-auto bg-white rounded-md px-3 py-2"
               />
