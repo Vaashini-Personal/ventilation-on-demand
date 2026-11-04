@@ -1,16 +1,17 @@
 import { ReactNode, useState, useEffect } from 'react';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from './AppSidebar';
-import { Clock } from 'lucide-react';
+import { Clock, LogOut } from 'lucide-react';
 
 interface Props {
   children: ReactNode;
   running?: boolean;
   onToggleSimulation?: () => void;
   alertCount?: number;
+  onLogout?: () => void;
 }
 
-export function AppLayout({ children, running, onToggleSimulation, alertCount = 0 }: Props) {
+export function AppLayout({ children, running, onToggleSimulation, alertCount = 0, onLogout }: Props) {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -32,6 +33,15 @@ export function AppLayout({ children, running, onToggleSimulation, alertCount = 
                 <Clock className="h-3.5 w-3.5" />
                 <span>Updated {time.toLocaleTimeString()}</span>
               </div>
+              {onLogout && (
+                <button
+                  onClick={onLogout}
+                  className="text-xs font-mono px-3 py-1.5 rounded-md border border-border text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+                >
+                  <LogOut className="h-3.5 w-3.5" />
+                  Sign out
+                </button>
+              )}
               {onToggleSimulation && (
                 <button
                   onClick={onToggleSimulation}
