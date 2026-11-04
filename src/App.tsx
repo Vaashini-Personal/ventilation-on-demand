@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,6 +19,9 @@ import AIPredictions from "./pages/AIPredictions";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import { RequireAuth } from "@/components/RequireAuth";
+import { logout } from "@/lib/auth";
 
 const queryClient = new QueryClient();
 
@@ -29,9 +32,15 @@ function AppContent() {
   } = useSimulation();
 
   const unackAlerts = alerts.filter(a => !a.acknowledged).length;
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login", { replace: true });
+  };
 
   return (
-    <AppLayout running={running} onToggleSimulation={toggleSimulation} alertCount={unackAlerts}>
+    <AppLayout running={running} onToggleSimulation={toggleSimulation} alertCount={unackAlerts} onLogout={handleLogout}>
       <Routes>
         <Route path="/" element={<Dashboard zones={zones} devices={devices} workers={workers} vehicles={vehicles} alerts={alerts} />} />
         <Route path="/map" element={<MineMap zones={zones} workers={workers} vehicles={vehicles} devices={devices} />} />
@@ -58,7 +67,17 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AppContent />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="*"
+            element={
+              <RequireAuth>
+                <AppContent />
+              </RequireAuth>
+            }
+          />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
